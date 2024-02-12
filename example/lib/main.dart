@@ -180,6 +180,14 @@ class _MailPageState extends State<MailPage> {
                                   children: <Widget>[
                                     Showcase(
                                       key: _one,
+                                      footer: Row(
+                                        children: [
+                                          MaterialButton(
+                                            onPressed: () {},
+                                            child: Text("Next"),
+                                          )
+                                        ],
+                                      ),
                                       description: 'Tap to see menu options',
                                       disableDefaultTargetGestures: true,
                                       onBarrierClick: () =>

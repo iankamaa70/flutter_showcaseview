@@ -42,6 +42,8 @@ class Showcase extends StatefulWidget {
   /// target widget while showcasing.
   @override
   final GlobalKey key;
+  //add footer widget
+  final Widget? footer;
 
   /// Target widget that will be showcased or highlighted
   final Widget child;
@@ -257,6 +259,7 @@ class Showcase extends StatefulWidget {
     this.overlayColor = Colors.black45,
     this.overlayOpacity = 0.75,
     this.titleTextStyle,
+    this.footer,
     this.descTextStyle,
     this.tooltipBackgroundColor = Colors.white,
     this.textColor = Colors.black,
@@ -332,6 +335,7 @@ class Showcase extends StatefulWidget {
         scaleAnimationAlignment = null,
         disableScaleAnimation = null,
         title = null,
+        footer = null,
         description = null,
         titleAlignment = TextAlign.start,
         descriptionAlignment = TextAlign.start,
@@ -542,6 +546,7 @@ class _ShowcaseState extends State<Showcase> {
           ),
           ToolTipWidget(
             position: position,
+            footer: widget.footer,
             offset: offset,
             screenSize: screenSize,
             title: widget.title,

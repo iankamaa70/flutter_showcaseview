@@ -43,6 +43,7 @@ class ToolTipWidget extends StatefulWidget {
   final Widget? container;
   final Color? tooltipBackgroundColor;
   final Color? textColor;
+  final Widget? footer;
   final bool showArrow;
   final double? contentHeight;
   final double? contentWidth;
@@ -87,6 +88,7 @@ class ToolTipWidget extends StatefulWidget {
     required this.tooltipBorderRadius,
     required this.scaleAnimationDuration,
     required this.scaleAnimationCurve,
+    this.footer,
     this.scaleAnimationAlignment,
     this.isTooltipDismissed = false,
     this.tooltipPosition,
@@ -461,6 +463,7 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                                               ),
                                     ),
                                   ),
+                                  if (widget.footer != null) widget.footer!
                                 ],
                               ),
                             ),

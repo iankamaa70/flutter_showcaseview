@@ -219,7 +219,13 @@ class ShowCaseWidgetState extends State<ShowCaseWidget> {
 
   void _onStart() {
     if (activeWidgetId! < ids!.length) {
-      widget.onStart?.call(activeWidgetId, ids![activeWidgetId!]);
+      //check if global key has context.If it does not then we need to mount it
+      if (ids![activeWidgetId!].currentContext?.mounted ?? false) {
+        widget.onStart?.call(activeWidgetId, ids![activeWidgetId!]);
+      } else {
+        //context not found in global key. Need to move on to the next
+        next();
+      }
     }
   }
 

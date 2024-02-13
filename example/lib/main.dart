@@ -52,10 +52,13 @@ class MailPage extends StatefulWidget {
 }
 
 class _MailPageState extends State<MailPage> {
+  final GlobalKey _empty1 = GlobalKey();
   final GlobalKey _one = GlobalKey();
+  final GlobalKey _empty2 = GlobalKey();
   final GlobalKey _two = GlobalKey();
   final GlobalKey _three = GlobalKey();
   final GlobalKey _four = GlobalKey();
+  final GlobalKey _empty3 = GlobalKey();
   final GlobalKey _five = GlobalKey();
   List<Mail> mails = [];
 
@@ -68,8 +71,8 @@ class _MailPageState extends State<MailPage> {
     //NOTE: remove ambiguate function if you are using
     //flutter version greater than 3.x and direct use WidgetsBinding.instance
     ambiguate(WidgetsBinding.instance)?.addPostFrameCallback(
-      (_) => ShowCaseWidget.of(context)
-          .startShowCase([_one, _two, _three, _four, _five]),
+      (_) => ShowCaseWidget.of(context).startShowCase(
+          [_empty1, _one, _empty2, _two, _three, _empty3, _four, _five]),
     );
     mails = [
       Mail(

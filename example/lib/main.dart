@@ -183,20 +183,21 @@ class _MailPageState extends State<MailPage> {
                                   children: <Widget>[
                                     Showcase(
                                       key: _one,
-                                      titleDecoration:
-                                          BoxDecoration(color: Colors.grey),
+                                      titleDecoration: const BoxDecoration(
+                                          color: Colors.grey),
                                       title: "Text Title",
                                       tooltipPadding: EdgeInsets.zero,
                                       footer: Row(
                                         children: [
                                           MaterialButton(
                                             onPressed: () {},
-                                            child: Text("Next"),
+                                            child: const Text("Next"),
                                           )
                                         ],
                                       ),
                                       descriptionDecoration:
-                                          BoxDecoration(color: Colors.grey),
+                                          const BoxDecoration(
+                                              color: Colors.grey),
                                       description: 'Tap to see menu options',
                                       disableDefaultTargetGestures: true,
                                       onBarrierClick: () =>

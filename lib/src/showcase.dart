@@ -44,6 +44,10 @@ class Showcase extends StatefulWidget {
   final GlobalKey key;
   //add footer widget
   final Widget? footer;
+  //add title and description widgets
+
+  final Decoration? titleDecoration;
+  final Decoration? descriptionDecoration;
 
   /// Target widget that will be showcased or highlighted
   final Widget child;
@@ -291,6 +295,8 @@ class Showcase extends StatefulWidget {
     this.titleTextDirection,
     this.descriptionTextDirection,
     this.onBarrierClick,
+    this.titleDecoration,
+    this.descriptionDecoration,
   })  : height = null,
         width = null,
         container = null,
@@ -328,6 +334,8 @@ class Showcase extends StatefulWidget {
     this.disableDefaultTargetGestures = false,
     this.tooltipPosition,
     this.onBarrierClick,
+    this.titleDecoration,
+    this.descriptionDecoration,
   })  : showArrow = false,
         onToolTipClick = null,
         scaleAnimationDuration = const Duration(milliseconds: 300),
@@ -545,6 +553,8 @@ class _ShowcaseState extends State<Showcase> {
             disableDefaultChildGestures: widget.disableDefaultTargetGestures,
           ),
           ToolTipWidget(
+            titleDecoration: widget.titleDecoration,
+            descriptionDecoration: widget.descriptionDecoration,
             position: position,
             footer: widget.footer,
             offset: offset,

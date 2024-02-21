@@ -59,6 +59,8 @@ class ToolTipWidget extends StatefulWidget {
   final bool isTooltipDismissed;
   final TooltipPosition? tooltipPosition;
   final EdgeInsets? titlePadding;
+  final Decoration? titleDecoration;
+  final Decoration? descriptionDecoration;
   final EdgeInsets? descriptionPadding;
   final TextDirection? titleTextDirection;
   final TextDirection? descriptionTextDirection;
@@ -96,6 +98,8 @@ class ToolTipWidget extends StatefulWidget {
     this.descriptionPadding,
     this.titleTextDirection,
     this.descriptionTextDirection,
+    this.titleDecoration,
+    this.descriptionDecoration,
   }) : super(key: key);
 
   @override
@@ -425,7 +429,9 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                                     : CrossAxisAlignment.center,
                                 children: <Widget>[
                                   if (widget.title != null)
-                                    Padding(
+                                    Container(
+                                      width: tooltipWidth,
+                                      decoration: widget.titleDecoration,
                                       padding: widget.titlePadding ??
                                           EdgeInsets.zero,
                                       child: Text(
@@ -444,26 +450,34 @@ class _ToolTipWidgetState extends State<ToolTipWidget>
                                                 ),
                                       ),
                                     ),
-                                  Padding(
+                                  Container(
+                                    width: tooltipWidth,
+                                    decoration: widget.descriptionDecoration,
                                     padding: widget.descriptionPadding ??
                                         EdgeInsets.zero,
-                                    child: Text(
-                                      widget.description!,
-                                      textAlign: widget.descriptionAlignment,
-                                      textDirection:
-                                          widget.descriptionTextDirection,
-                                      style: widget.descTextStyle ??
-                                          Theme.of(context)
-                                              .textTheme
-                                              .titleSmall!
-                                              .merge(
-                                                TextStyle(
-                                                  color: widget.textColor,
-                                                ),
-                                              ),
+                                    child: Column(
+                                      children: [
+                                        Text(
+                                          widget.description!,
+                                          textAlign:
+                                              widget.descriptionAlignment,
+                                          textDirection:
+                                              widget.descriptionTextDirection,
+                                          style: widget.descTextStyle ??
+                                              Theme.of(context)
+                                                  .textTheme
+                                                  .titleSmall!
+                                                  .merge(
+                                                    TextStyle(
+                                                      color: widget.textColor,
+                                                    ),
+                                                  ),
+                                        ),
+                                        if (widget.footer != null)
+                                          widget.footer!
+                                      ],
                                     ),
                                   ),
-                                  if (widget.footer != null) widget.footer!
                                 ],
                               ),
                             ),
